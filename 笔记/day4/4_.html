@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* 圆形 */
+            border-radius: 5px;/*在四角画一个半径为5的圆*/
+            border-radius: 50%;/*当前元素宽度的一半*/
+
+        }
+
+        /* 不同浏览器 */
+        :-moz-placeholder{/*Mozilla Firefox 4 to 18*/
+            color: #999;
+        }
+        ::-moz-placeholder{/*Mozilla Firefox 19+*/
+            color: #999;
+        }
+        input::-ms-input-placeholder{/*ie*/
+            color: #999;
+        }
+        .content .inp-box input::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        fieldset{
+            border-width: 1px 0 0 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- placeholder 文本框内文字 -->
+        <input type="text" placeholder="邮箱/手机号码">
+    </div>
+    <!-- 圆形 -->
+    <div class="box">
+        hhhhhhh
+    </div>
+    <!-- 缩写可以覆盖展开形式
+        background 覆盖 background-color
+        margin 覆盖 margin-top -->
+    <fieldset>
+        <legend>测试文本</legend>
+    </fieldset>
+</body>
+</html>

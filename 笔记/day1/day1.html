@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- 根元素 -->
+<html lang="en">
+<head>
+    <!-- 页面编码 -->
+    <meta charset="UTF-8">
+    <!-- 自适应 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 搜索关键字 -->
+    <meta name="keywords" content="花店,鲜花,订花,送花,网上花店,鲜花网,送花网,鲜花速递,同城鲜花配送,鲜花网站,鲜花预定,网上订花">
+    <meta name="description" content="一朵朵鲜花网,从事鲜花、礼品、蛋糕的在线销售和配送，专业鲜花配送服务已有10年，全国领先的网上鲜花配送服务商。公司主要业务为：订花,送花,鲜花速递，网上订鲜花，同城鲜花送货上门，异地订鲜花。快1-3小时内送花上门,全国2168座城市配送鲜花" >
+    <!-- 页面标题 -->
+    <title>笔记1</title>
+</head>
+
+<!-- style ="height: 3000px;" body的高度  -->
+<body style="height: 3000px;">
+    <!-- 标题 -->
+    <h1>我是标题</h1>
+    <h2>我是标题</h2>
+    <h3>我是标题</h3>
+
+    <!-- 段落 -->
+    <p>我是一段文字</p>
+
+    <!-- 超链接  target="_blank"打开新页面跳转-->
+    <a href="http://www.baidu.com" target="_blank">百度</a>
+
+    <!-- 图片 
+        src 路径
+            相对路径
+            绝对路径   file:///Users/mac/work/vip1/image/img01.jpg
+        alt=""
+     -->
+     <!-- 往出跳../  往里跳/ -->
+    <img src="image/img01.jpg" alt="">
+    <!-- src 路径   alt 当图片加载不出来 显示alt中的内容   title鼠标划入  -->
+    <img src="../image/img01.jpg" alt="这是一个鲜花图片" title="我是图片的title" style="width:200px;height:200px;" >
+    <img src="file:///Users/mac/work/vip1/image/img01.jpg" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594879288037&di=71cf90b57bac43d605e029e1ae471d7a&imgtype=0&src=http%3A%2F%2Fm.360buyimg.com%2Fn12%2Fjfs%2Ft2353%2F66%2F1724658382%2F424102%2Fd89637df%2F567105c3ne5e47f23.jpg!q70.jpg" alt="" style="width: 200px;height: 200px;">
+    
+    <!-- 无序列表 unorder list-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <!-- 有序列表 order list-->
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ol>
+
+    <!-- 布局 划分区块 -->
+    <!-- 块级元素  自己占一行 -->
+    <div style="background: red;">
+        我是一个div
+    </div>
+
+    <!-- 行级元素  多个占一行 -->
+    <span style="background: green;">
+        我是一个span
+    </span>
+    
+    <!-- 
+        行级元素  span  a  strong(加粗)  i（斜体） 
+            多个占一行  
+            不能设置宽高  
+        块级元素    div  p  h1-h6 ul li ol
+            自己站一行
+            可以设置宽高
+        行级块元素   img 
+            多个站一行 
+            可以设置宽高
+    -->
+    
+    <!-- 表单元素 -->
+    <form action="">
+        <div>
+            <!-- 标签  for 获取关联标签焦点 -->
+            <label for="username">用户名：</label>
+            <!-- 文本框 -->
+            <input id="username" type="text">
+        </div>
+        <div>
+            <label for="password">密码：</label>
+            <!-- 密码框 -->
+            <input id="password" type="password">
+        </div>
+        <div>
+            学校：
+            <!-- 下拉框 -->
+            <select>
+                <!-- 选项 -->
+                <option value="">黑龙江大学</option>
+                <option value="">哈尔滨理工大学</option>
+                <option value="">林业大学</option>
+            </select>
+        </div>
+        <div>
+            性别：
+            <!-- 单元框 -->
+            <input type="radio" name="sex">男
+            <input type="radio" name="sex">女
+            
+
+        </div>
+        <div>
+            爱好：
+            <!-- 复选框 -->
+            <input type="checkbox" name="hobby">吃饭
+            <input type="checkbox" name="hobby">睡觉
+            <input type="checkbox" name="hobby">敲代码
+        </div>
+        <div>
+            <!-- 备注 -->
+            <textarea></textarea>
+        </div>
+        <div>
+            <!-- 按钮 -->
+            <button>提交</button>
+            <!-- 提交按钮  提交表单 -->
+            <input type="submit" value="提交按钮">
+        </div>
+    </form>
+
+    <!-- 表格 border="1"边框  cellspacing=" "边框大小  -->
+    <table border="1" cellspacing="0">
+        <tr>
+            <!-- 表头 -->
+            <th>姓名</th>
+            <th>性别</th>
+        </tr>
+        <!-- 行 -->
+        <tr>
+            <!-- 列 -->
+            <td>张三</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>19</td>
+        </tr>
+    </table>
+
+</body>
+</html>

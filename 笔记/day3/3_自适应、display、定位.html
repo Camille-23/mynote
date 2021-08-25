@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 居中自适应 */
+        #div1 {
+            width: 1000px;
+            height: 200px;
+            background: red;
+            /* 块级元素水平居中 */
+            margin: 0 auto;
+        }
+
+        /* display */
+        #div2 {
+            /* 变成块级元素 */
+            display: block;
+            /* 变成行级元素 */
+            display: inline;
+            /* 变成行级块元素 */
+            display: inline-block;
+            /* 元素隐藏 */
+            display: none;
+        }
+
+        /* 定位 position
+            relative 相对定位   
+                1 相对于自己的初始位置
+                2 空间不释放
+            absolute 绝对定位
+                1 相对于最近已定位的祖先元素 如果没有最近已定位的祖先元素，相对于body
+                2 空间释放
+            fixed  固定定位
+                1 相对于浏览器
+                2 空间释放
+            static  默认值（元素不定位 默认值static） */
+
+        #div3 {
+            /* 过度  属性 执行时间 运动 延迟时间 */
+            transition: height 0.5s ease;
+            /* 边框阴影 水平偏移 垂直偏移 模糊度 外延值 颜色 */
+            box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2">hhh</div>
+    <div id="div3"></div>
+</body>
+
+</html>

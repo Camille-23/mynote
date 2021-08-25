@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div{
+            color: red;
+        } */
+    </style>
+</head>
+<body>
+    <div class="div1" id="box">hello</div>
+    <div>world</div>
+    <div id="box"></div>
+    <div class="boxx">hello world</div>
+    <div id="box2"><h1>你好</h1></div>
+
+    <script>
+        // getElementsByTagName和getElementsByClassName 获取到的是一个集合一个类数组
+        var oDiv = document.getElementsByTagName("div");
+        console.log(oDiv);
+        //console.log(oDiv[0]);
+        var oDiv = document.getElementsByClassName("div1");
+        console.log(oDiv);
+        // getElementById 获取到的是一个单个的元素
+        var oDiv = document.getElementById("box");
+        console.log(oDiv);
+        
+        //***************修改DOM内容***************
+        var oBox = document.getElementById("box");
+        oBox.innerHTML = "<h1>hello world<h1>";
+        //***************修改DOM样式***************
+        var oBox1 = document.getElementsByClassName("boxx");
+        console.log(oBox1);
+        oBox1[0].innerHTML = "你好";
+        oBox1.style.color = "red";
+        oBox1.style.fontSize = "20px";
+
+        var oBox2 = document.getElementById("box2");
+        console.log(oBox2.innerHTML);
+        
+        //0731 第二节 35:19
+
+    </script>
+</body>
+</html>

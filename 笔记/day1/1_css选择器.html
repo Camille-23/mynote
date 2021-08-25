@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记1_css选择器</title>
+    <style>
+        /* 标签选择器 */
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        #div1{
+            background: pink;
+        }
+
+        /* 类选择器 */
+        .list{
+            width: 100px;
+            height: 50px;
+            background: blue;
+        }
+
+        /* 后代选择器 找ul里的后代 */
+        ul .list{
+            width: 100px;
+            height: 50px;
+            background: orange;
+        }
+
+        /* 亲子代选择器 */
+        ul > .list{
+            background-color: paleturquoise;
+        }
+
+        /* 伪类选择器 鼠标划入 */
+        a:hover{
+            background: #333;
+            color: silver;
+        }
+
+        /* 分组选择器  选择id是div1的和class是list的 */
+        #div1,.list{
+            background: tan !important;
+        }
+
+        /* 优先级
+            ！important > 内联样式 > id选择器 > class 伪类 > 标签    
+        */
+    </style>
+</head>
+<body>
+    <div id="div1">我是div</div>
+    <div>我是div1</div>
+    <div class="list">我是div2</div>
+    <ul>
+        <li class="list">111</li>
+        <li>222</li>
+        <li class="list">
+            333
+            <div>哈哈哈</div>
+            <div class="list">呵呵呵</div>
+        </li>
+    </ul>
+
+    <a href="http://www.baidu.com">百度</a>
+</body>
+</html>

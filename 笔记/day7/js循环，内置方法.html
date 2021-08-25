@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //*******************循环***********************
+        // var arr = [1,2,3,4,5,6];
+        // var sum = 0;
+        // for(var i = 0;i<arr.length;i++){
+        //   console.log(arr[i])
+        // }
+
+        // var str = "hello";
+        // for(var i = 0;i<5;i++){
+        //   console.log(str[i])
+        // }
+
+        // var i = 0;
+        // while(i<arr.length){
+        //   console.log(arr[i])
+        //   i++;
+        // }
+
+        // var i = 100;
+        // do {
+        //   console.log(arr[i])
+        //   i++;
+        // } while (i<arr.length);
+
+        //*******************内置方法***********************
+        //***************字符串***************
+        var str = "hello";
+        var str2 = "2020-07-29";
+        console.log(str[1]);        //索引
+        console.log(str.charAt(1));  //内置方法 返回在指定位置的字符
+        console.log(str.indexOf("e"));  //检索字符串，返回首次出现的位置
+        console.log(str.replace("ll","aa"));    //替换
+        console.log(str.slice(1,3));    //截取字符串片段 （不包含结束位置）
+        console.log(str2.split("-"));   //分割字符串，分割成数组
+        console.log(str.substr(1,1));   //截取 （开始，长度（可不填））
+        console.log(str.substring(1,3));    //同slice  不允许使用负数作参数
+
+        //***************数组***************
+        var arr = [1,2,3,4,5];
+        var arr2 = [6,7,8,9];
+        // arr.push(6);    //向数组的末尾添加一个或更多元素，并返回新的长度
+        arr.push(6,7);      //会改变原有数组
+        console.log(arr);
+
+        console.log(arr.concat(arr2));  //不会改变原有数组
+        console.log(arr.join("-")); //返回组合字符串
+
+        console.log(arr.pop());     //删除最后一个元素，返回最后一个元素
+        console.log(arr);
+
+        console.log(arr.reverse()); //倒序数组
+        console.log(arr.slice(1,3));    //同字符串
+        arr.splice(1,3,"a");  //删除并改变原有数组
+        //arr.splice(1,3,"a","b");
+        console.log(arr);
+
+        var str = "10";
+        var str2 = "10.1";
+        //var str = "10"*1;
+        str = parseInt(str);    //隐式转换成int型
+        str2 = parseFloat(str2);
+        var a = 1+str;
+        console.log(a);
+        console.log(str2);
+        
+        //***************Math***************
+        var num = "9.21128";
+        console.log(Math.ceil(num));    //向上取整
+        console.log(Math.floor(num));   //向下取整
+        console.log(Math.round(num));  //四舍五入
+        console.log(Math.random()); //生成0-1之间的随机数
+        console.log(Math.ceil(Math.random()*10));   //生成1-10之间的随机数
+        console.log(Math.floor(Math.random()*10+1));//生成1-10之间的随机数
+        console.log(Math.ceil(Math.random()*5));    //生成1-5之间的随机数
+        console.log(Math.floor(Math.random()*5+1)); //生成1-5之间的随机数
+        console.log(Math.floor( Math.random()*6)); //生成 0-5随机数字
+        console.log(Math.floor( Math.random()*6)+5);// 生成 5-10随机数字
+        
+        //***************Date***************
+        var timer = new Date();
+        console.log(timer);     //获取当前时间
+        console.log(timer.getFullYear());//获取当前年份
+        console.log(timer.getMonth()+1); //获取当前月份
+        console.log(timer.getDate());    //获取当前日期
+        // let timerArr = [];
+        // timerArr.push(timer.getFullYear());
+        // timerArr.push(timer.getMonth()+1);
+        // timerArr.push(timer.getDate());
+        // console.log(timerArr.join("-"));
+        console.log(timer.getDay());    //获取当前星期
+        console.log(timer.getHours());  //获取当前小时
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS练习</title>
+</head>
+<body>
+    <script>
+        //习题1 
+        var x = Math.random();
+        var y = Math.random();
+        console.log(x);
+        console.log(y);
+        console.log(x>y?x:y);
+
+        document.write("<br/>");    //换行
+        document.write("&nbsp;");   //空格
+
+        //斐波那契数列 非递归
+        var a = 1;
+        var b = 1;
+        var sum = 0;
+        var temp = 0;
+        for(var i=1;i<=10;i++){
+            if(i<3){
+                document.write(1,"&nbsp;");
+            }
+            else{
+                sum = a+b;
+                a = b;
+                b = sum;
+                document.write(sum,"&nbsp;");
+            }
+        }
+        //递归
+        function foo(i){
+            if(i<3){
+                return 1;
+            }
+            else{
+                return foo(i-1)+foo(i-2);
+            }
+        }
+        document.write("<br/>");
+        document.write(foo(10));
+        
+        //收集数字字符
+        var str = "1abc23def4";
+        str = str.split("");
+        var result = "";
+        for(var i=0;i<str.length;i++){
+          if(str[i]>="0" && str[i]<="9"){
+            result += str[i];
+          }
+        }
+        console.log(result);
+
+    </script>
+</body>
+</html>

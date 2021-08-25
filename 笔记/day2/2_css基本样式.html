@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_css基本样式</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            /* color: red; */
+            background-color: red;
+            background-image: url(../../image/image01.jpg);
+            /* 背景图片不重复 */
+            background-repeat: no-repeat;
+            /* 背景图片位置  水平偏移  垂直偏移 */
+            background-position: 100px 50px;
+            background-size: 200px 200px;
+            /* 水平居右 垂直居中 */
+            background-position: right center;
+            /* 背景固定
+            background-attachment: fixed; */
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* 首行缩进 */
+            text-indent: 30px;
+
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background:lightblue;
+            /* 对齐格式  left certer right */
+            text-align: right;
+            /* 单行文本垂直对齐 行高=高度 */
+            line-height: 200px;
+            /* 文本装饰 none underline line-through */
+            text-decoration: line-through;
+        }
+        a{
+            /* 文本装饰 去掉下划线 */
+            text-decoration: none;
+        }
+        #div4{
+            /* 字体 默认第一个 */
+            font-family: Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+            /* 字体大小 */
+            font-size: 12px;
+            /* 字体粗细 bold=700 */
+            font-weight: 900;
+            /* 字体风格 */
+            font-style: italic;
+            color: lightblue;
+        }
+        ul{
+            /* 去掉· */
+            list-style: none;
+        }
+        input{
+            /* 轮廓 去掉蓝线 */
+            outline: none;
+        }
+        /* 浮动 */
+        #div5{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            /* 左浮  浮动的元素会脱离文档流，空间释放 */
+            float: left;
+        }
+        #div6{
+            width: 200px;
+            height: 200px;
+            background: lightcoral;
+            float: left;
+        }
+        /* 清除浮动 */
+        h1{
+            height: 100px;
+            background: yellow;
+        }
+        /* 解决塌陷 */
+        /* 1.给父元素添加高度 */
+        #div0{
+            height: 200px;
+        }
+        /* 2.父元素overflow：hidden */
+        #div0{
+            /* 溢出隐藏 */
+            overflow: hidden;
+        }
+        /* 3.浮动的元素下边添加一个元素 clear:both */
+        #clear{
+            clear: left;
+        }
+        /* 4.伪元素 */
+        #div0::after{
+            content: "";
+            /* 变成块级元素 */
+            display: block;
+            clear: both;
+        }
+        /* clearfix */
+        .clearfix::after{
+            contain: "";
+            display: block;
+            clear: both;
+        }
+        /* 右浮 */
+        #div7{
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            float: right;
+        }
+        #div8{
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+            float: right;
+        }
+        /* css盒模型 */
+        #div9{
+            width: 200px;
+            height: 200px;
+            background: lightsalmon;
+            /* 边框  solid实线 dashed虚线 */
+            border: 5px solid #000;
+            border-width: 10px;
+            border-style: dashed;
+            /* 内边距  内容和border之间 */
+            padding: 50px;
+            /* 上下  左右 */
+            padding: 50px 10px;
+            /* 上  右  下  左 */
+            padding: 50px 40px 20px 10px;
+            /* 上  右=左  下 */
+            padding: 40px 30px 10px;
+            /* top right bottom left */
+            padding-top: 40px;
+            /* 外边距  元素之间的距离 */
+            margin: 30px;
+        }
+        /* 怪异盒模型 */
+        #div10{
+            width: 200px;
+            height: 200px;
+            background: plum;
+            padding: 50px;
+            border: 5px solid #000;
+            margin: 20px;
+
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">你好呀！</div>
+    <div id="div2">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div id="div3">hello word</div>
+    <a href="http://www.baidu.com">baidu</a>
+    <div id="div4">嘿嘿嘿嘿嘿嘿嘿</div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+    </ul>
+    <div>
+        <input type="text">
+    </div>
+    
+    <div id="div0" class="clearfix">
+        <!-- 浮动导致父元素塌陷 -->
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="clear"></div>
+    </div>
+    <h1></h1>
+    <div id="div7"></div>
+    <div id="div8"></div>
+    <!-- 
+        标准盒模型：
+            width=内容宽度
+            box-sizing=content-box（标准盒模型）
+        怪异盒模型：
+            width=内容宽度+padding+border
+            box-sizing=border-box（怪异盒模型）
+     -->
+    <div id="div9">我是div9</div>
+    <div id="div10">hhh</div>
+</body>
+</html>
