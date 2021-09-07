@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            height: 100px;
+            white-space: nowrap;/*不换行*/
+            line-height: 100px;
+            flex: 1;
+            list-style: none;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;/*当手指从触摸屏上移开，会保持一段时间的滚动*/
+            touch-action: pan-x;/*启用单指水平平移手势*/
+        }
+        li{
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            line-height: 50px;
+            text-align: center;
+            background: red;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+</body>
+</html>

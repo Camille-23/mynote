@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var
+        // 变量提升 
+        // var定义变量 当前作用域的最上边 定义这个变量，没有赋值
+        /* 
+            var x;
+            console.log(x); //20
+            var x = 20;
+         */
+
+
+
+        // let
+        // **1 定义变量 没有变量提升***********
+
+        // **2 不能重复声明*******************
+        // var q = 10;
+        // var q = 20;  //20
+        // let q = 30;
+        // let q = 40;  //不能重复声明
+        // console.log(q);
+
+        // **3 let 块级作用域*****************
+        // var x = true;
+        // if(x){
+        //     var y = 10; //10
+        // }
+        // if(x){
+        //     let y = 10; 
+        // }
+        // console.log(y);
+
+        // for (var i = 0; i < 5; i++) {   //i=5 
+        //     setTimeout(function () {    //异步执行
+        //         console.log(i);
+        //     }, 1000);
+        // }
+        // let定义的变量 块级作用域
+        /*for(let i=0; i<5; i++){  // 0 1 2 3 4
+            setTimeout(function () {
+                console.log(i);
+            },100);
+        }
+        */
+       //块级作用域其实就是立即执行函数(function(){})()
+
+        // **4 let临时失效 暂时性死区 
+        //  let定义的变量  在代码块内 到定义let这一行往上 临时失效
+        // var a = 10;        
+        // function fn(){   
+        //     console.log(a); //必须 等let声明语句执行完之后，变量才能使用
+        //     let a = 20;
+        //     //console.log(a)
+        // }
+        // fn();
+
+
+
+        //const
+        // !!定义常量 
+        //  1 定义变量 没有变量提升
+        //  2 不能重复声明
+        //  3 块级作用域
+        //  4 临时失效区
+
+        // 引用数据类型的常量 地址 指针不能变 
+        // const a = 10;
+        // a = 19;
+        // console.log(a);  //报错
+        
+        // const obj = {
+        //     name:'zs',
+        //     age:18
+        // }
+        // obj = {     //不能修改地址
+        //     name:'lisi'
+        // }
+        // Object.freeze(obj);  //冻结，不能修改
+        // obj.name = 'lisi';   //可修改对象的值
+        // console.log(obj);
+
+        // const arr = [1,2,3];
+        // arr[0]= 8;
+        // console.log(arr);
+
+    </script>
+</body>
+</html>
