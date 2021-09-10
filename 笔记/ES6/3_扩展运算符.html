@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        /*  
+        扩展运算符...
+            1 合并数组
+            2 数组复制
+            3 把类数组转成数组
+        */ 
+        let arr1 = [1,2,3];
+        let arr2 = [4,5,6];
+        // let arr6 = [...arr1,8,0,100]
+
+        // //合并数组
+        // console.log( arr1.concat(arr2) );
+        // console.log( [...arr1,...arr2] );
+
+        // //数组复制
+        // let arr3 = [ ...arr1 ];  //新数组
+        // arr3 = arr1;
+        // arr1[0] = 8;
+        // console.log(arr1,arr3);//1 2 3
+
+        // 类数组 不是真正的数组,没有数组对象下的方法
+        // 具有指向对象元素的数字索引下标以及 length 属性告诉我们对象的元素个数
+        let aLi = document.getElementsByTagName('li');
+        console.log(aLi);
+        // for(let i=0; i<aLi.length; i++){
+        //     console.log(aLi[i]);
+        // }
+        // let result = [];
+        // for(let i=0; i<aLi.length; i++){
+        //     result.push(aLi[i]);
+        // }
+
+        // let arr5 = [...aLi];
+        // console.log(arr5);
+        
+
+        let obj1 = {
+            name:'zs',
+            age:18
+        }
+        let obj2 = {
+            name:'lisi',
+            school:'xx'
+        }
+
+        let obj3 = {...obj1,...obj2};
+        console.log(obj3);
+    </script>
+</body>
+</html>
