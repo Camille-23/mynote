@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  类 具有相同属性和方法的集合
+            类 构造函数   this指向 ->new 实例化对象
+                1 属性写在构造函数中
+                2 方法protottype原型对象下
+        */
+        // var obj = {
+        //     name:'zs',
+        //     age:20,
+        //     say:function(){
+        //         console.log('sdkl;ghjkl');
+        //     }
+        // }
+
+
+        function Person(name,age){
+            this.name = name,
+            this.age = age
+            // this.eat = function(){ //new Function()
+            //     console.log('我正在吃。。。')
+            // }
+        }
+        // prototype原型对象 所有的构造函数都有一个prototype属性 ，指向原型对象 
+        // 添加到原型对象下的属性和方法 被所有实例化对象所共享 
+        // (如果方法添加到原型对象下 new 所有实例化对象 都有这个方法)
+        Person.prototype.eat = function(){
+            console.log('我正在吃。。。')
+        }
+
+        // new 实例化对象
+        var p1 = new Person('zs',20);
+        var p2 = new Person('lisi',18);
+        var p3 = new Person('wangwu',19);
+
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+
+        // 继承 继承属性 在子类的构造函数中 通过父类.call(this) 继承属性
+        function Coder(name,age){
+            // this ->c1 
+            Person.call(this,name,age); //继承属性
+        }
+        // 继承方法 子类的原型对象 = new 父类
+        Coder.prototype = new Person();
+        Coder.prototype.constructor = Coder; //Coder的原型对象下contructor属性  指回Coder
+
+        var c1 = new Coder('jack',25);
+        var c2 = new Coder('xx',18);
+        console.log(c1);
+        c1.eat();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // splice
+        var arr1 = [1,2,3];
+        // 索引  howmany 替换元素。。。   
+        arr1.splice(1,0,'a','b');// 可删除 插入 替换
+        console.log(arr1);
+
+        // split 将字符串分割成数组字符串
+        var str="How are you doing today?"
+        document.write(str.split(" ") + "<br />")
+        document.write(str.split("") + "<br />")
+        document.write(str.split(" ",3))
+
+        // 模板字符串
+        let str1 = "abc";
+        let str2 = "xyz";
+        console.log("我是字'" + 5 + 4 + "'符串的法" + str2 + "国红酒考虑；")
+        console.log(`我是字符'${5 + 4}'串的法国红${str2}酒考虑；`);
+    </script>
+</body>
+</html>
