@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>手机号空格填充</title>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    function getMoblieFormat(obj)
+        {
+            var value = obj.value;
+            value = value.replace(/\s*/g, "");
+            var result = [];
+            for(var i = 0; i < value.length; i++){
+                if (i==3||i==7){
+                    result.push(" " + value.charAt(i)); 
+                }else{
+                    result.push(value.charAt(i));
+                }
+            }
+            obj.value = result.join(""); 
+        }
+</script>
+</head>
+<body>
+    手机号：
+    <input type="text" id="tel" value="" placeholder="请输入手机号。。。" onkeyup="getMoblieFormat(this)" maxlength="13" />
+</body>
+</html>

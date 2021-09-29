@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    正则表达式
+    正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。
+
+    基本组成：元素字符、元字符
+
+    应用场景
+    格式验证
+    数据提取
+    文本替换
+    初始化
+      / 正则表达式主体 / 修饰符(可选)
+
+      //例如
+      / xyz / i （开头结尾是斜杠 /, 字符转译用反斜杠\）
+
+    //或
+    var regex = new RegExp('xyz', 'i');
+
+    //或者
+    var regex = new RegExp(/xyz/i);
+    方括号用于查找某个范围内的字符：
+
+表达式 描述
+    [abc] 查找方括号之间的任何字符，a、b、c
+    [0 - 9] 查找任何从 0 至 9 的数字。
+    (x | y) 查找任何以 | 分隔的选项。
+    [a - zA - Z] a~z, A - Z
+    [^ abc] 非abc ^ 只有在[]才是取反
+    特殊字符
+
+特殊字符 正则表达式 记忆方式
+    换行符 \n new line
+    换页符 \f form feed
+    回车符 \r return
+    空白符 \s space
+    制表符 \t tab
+    垂直制表符 \v vertical tab
+    回退符[\b]backspace, 之所以使用[]符号是避免和\b重复
+    三兄弟s、w、d
+    只要弟弟，不要哥哥
+    哥哥和弟弟属性相反
+正则表达式 匹配区间 记忆方式
+      .除了换行符之外的任何字符
+      ^ 字符开始 验证时使用
+$ 字符串结尾 验证时使用
+    \d 单个数字, [0 - 9] digit（整数）
+    \s 匹配空白字符, 包括空格、制表符、换页符和换行符 space key(空格键) => 3空（tab、\n、空格）
+    \w 包括下划线在内的单个字符，[A - Za - z0 -9_] word （字母、数字、_）
+    \D 除了[0 - 9] not digit
+    \W 非单字字符 not word
+    \S 匹配非空白字符 not space
+    匹配次数
+正则表达式 匹配次数 记忆方式
+？ 0 | 1 年轻人才做选择, 大人全都要
+      * >= 0 乘以（0, number）=> { 0, 无穷 }
+    + >= 1 number + 1() => { 1, 无穷 }
+    { x } x次 100个蹲起一个
+    { min, max } 介于min次到max次之间 必须考过85，100之间
+    { min, } 至少min次 { min,} 最少滴过60分吧
+    修饰符
+修饰符 含义 描述
+i ignore - 不区分大小写 将匹配设置为不区分大小写，搜索时不区分大小写: A 和 a 没有区别。
+g global - 全局匹配 单行全局匹配，后面有就可以匹配
+m multi line - 多行匹配 使边界字符 ^ 和 $ 匹配每一行的开头和结尾，记住是多行，而不是整个字符串的开头和结尾。
+s dotAll 模 默认情况下的圆点.是 匹配除换行符 \n 之外的任何字符，加上 s 修饰符之后, .中包含换行符 \n。
+u 支持Unicode \uFFFF的 Unicode 字符。
+    y “粘连”（sticky）修饰符。 y修饰符确保匹配必须从剩余的第一个位置开始，这也就是“粘连”的涵义，必须是紧接着下面第一个
+    y和g的区别
+    var s = 'aaa_aa_a';
+    var r1 = /a+/g;
+    var r2 = /a+/y;
+
+    r1.exec(s) // ["aaa"]
+    r2.exec(s) // ["aaa"]
+
+    r1.exec(s) // ["aa"]
+    r2.exec(s) // null
+RegExp 对象方法
+方法 描述 FF IE
+compile 编译正则表达式。 1 4
+exec 检索字符串中指定的值。返回找到的值，并确定其位置。 1 4
+test 检索字符串中指定的值。返回 true 或 false。 1 4
+    compile（）
+    var str = "Every man in the world! Every woman on earth!";
+
+    patt = /man/g;
+    str2 = str.replace(patt, "person");
+    console.log("str2", str2);
+
+    patt = /(wo)?man/g;
+    patt.compile(patt);
+    str2 = str.replace(patt, "person");
+    console.log("str2", str2);
+
+    // str2 Every person in the world! Every woperson on earth!
+    // str2 Every person in the world! Every person on earth!
+    test
+      / [a - z] / iu.test('\u212A') // true
+
+      /^ (13[0 - 9] | 14[01456879]| 15[0 - 35 - 9] | 16[2567] | 17[0 - 8] | 18[0 - 9] | 19[0 - 35 - 9]) \d{ 8 } $ /.test(13651077220)  // 验证手机号
+exec 循环匹配
+    var str = "<span>姓名：前端</span><div><span>性别：女</span></div>";
+    var patt = new RegExp("<span>.*?</span>", "g");
+    var result;
+
+    while ((result = patt.exec(str)) != null) {
+      console.log(result[0])
+    }
+
+    // <span>姓名：前端</span>
+    // <span>性别：女</span>
+    (.*?)惰性匹配、非惰性(非贪婪、贪婪)
+      *、+默认非惰性匹配
+
+    所谓惰性就是加？号、觉额主要看问号前面、后面元素
+
+    const reg = /a.*?b/;
+    const str = "aababaaaaaaaaaaaab";
+
+    //aab
+    //ab
+    //aaaaaaaaaaaab
+
+    const reg = /a.*b/;
+    const str = "aabab";
+
+    //aababaaaaaaaaaaaab
+    String对应方法
+方法 描述 FF IE
+search 检索与正则表达式相匹配的索引序号 1 4
+match 找到一个或多个正则表达式的匹配。 1 4
+replace 替换与正则表达式匹配的子串。 1 4
+split 把字符串分割为字符串数组。
+    search
+    var str = "good study Day day up!";
+    console.log(str.search(/day/i))   // 11
+    replace
+    const REGEX = /a/gy;
+    'aaxa'.replace(REGEX, '-') // '--xa'
+    match
+    'a1a2a3'.match(/a\d/y) // ["a1"]
+    'a1a2a3'.match(/a\d/gy) // ["a1", "a2", "a3"]
+    分组有四种类型
+    捕获型() => 使用最多, 只有这种分组才会暂存匹配到的串
+
+    非捕获型(?: )
+
+    正向前瞻型(?=)
+
+    反向前瞻型(?!)
+
+    捕获型
+    var dateStr = '2018/04/18';
+    var reg = /(\d{4})\/(\d{2})\/(\d{2})/;
+    dateStr = dateStr.replace(reg, '$1-$2-$3') //"2018-04-18"
+    反向引用
+    var reg = /(\w{3}) is \1/
+    reg.test('kid is kid') // true
+    reg.test('dik is dik') // true
+    reg.test('kid is dik') // false
+    reg.test('dik is kid') // false        
+    //\1表示重复正则第一个圆括号内匹配到的内容  \2表示重复正则第二个圆括号内匹配到的内容  js里总共可以放9个对应   用\1....\9来获取重用
+    //也可以使用 RegExp.$1-9 引用
+    //需要注意的是，如果引用了越界或者不存在的编号的话，就被被解析为普通的表达式
+    非捕获型分组
+    var reg = /(?:\d{4})-(\d{2})-(\d{2})/
+    var date = '2012-12-21'
+    reg.test(date)
+
+    // d{4}设置非捕获,所以$1才是12
+    RegExp.$1 // 12
+    RegExp.$2 // 21
+    正向与反向前瞻型分组
+    正向前瞻型分组：你站在原地往前看，如果前方是指定的东西就返回true，否则为false
+
+    var reg = /kid is a (?=doubi)/
+    reg.test('kid is a doubi') // true
+    reg.test('kid is a shabi') // false
+    反向前瞻型分组：你站在原地往前看，如果前方不是指定的东西则返回true，如果是则返回false
+
+    var reg = /kid is a (?!doubi)/
+    reg.test('kid is a doubi') // false
+    reg.test('kid is a shabi') // true
+    既然前瞻型分组和非捕获型分组都不会捕获，那他们有什么区别呢？先看例子：
+
+    var reg, str = "kid is a doubi";
+    reg = /(kid is a (?:doubi))/
+    reg.test(str)
+    RegExp.$1 // kid is a doubi
+
+    reg = /(kid is a (?=doubi))/
+    reg.test(str)
+    RegExp.$1 // kis is a
+    也就是说非捕获型分组匹配到的字符串任然会被外层分组匹配到，而前瞻型不会，所以如果你希望在外层分组中不匹配里面分组的值的话就可以使用前瞻型分组了。
+
+    具名组匹配
+    组匹配的一个问题是，每一组的匹配含义不容易看出来，而且只能用数字序号（比如matchObj[1]）引用，要是组的顺序变了，引用的时候就必须修改序号。
+
+    const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/;
+
+    const matchObj = RE_DATE.exec('1999-12-31');
+    const year = matchObj[1]; // 1999
+    const month = matchObj[2]; // 12
+    const day = matchObj[3]; // 31
+ES2018 引入了具名组匹配（Named Capture Groups），允许为每一个组匹配指定一个名字，既便于阅读代码，又便于引用
+
+    小括号里加(?\d{ 4})
+    const RE_DATE = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+
+    const matchObj = RE_DATE.exec('1999-12-31');
+    const year = matchObj.groups.year; // "1999"
+    const month = matchObj.groups.month; // "12"
+    const day = matchObj.groups.day; // "31"
+asgard 项目中使用
+    image - 20210813113802744
+
+      (解析route.js 文件) string.split
+    const parse = content =>
+      content.split(/\n/)
+        .map(parseLine)
+        .filter(Boolean)
+        .map(create);
+    解析单行路由
+
+    // 清理“”或者‘ 
+    function removeQuotes(str) {
+      return str.trim().replace(/"|'/ig, '');
+    };
+    // 解析单个路由
+    const parseLine = line => {
+      if (!line.trim() || /^(#|\/\/)/.test(line)) return;
+      const m = /(\w+)\s+(.+)\s*=>\s*(.+)#(\w+)(\s*,(.+))?/.exec(line);
+      if (!m) throw new SyntaxError('Unexpected token', line);
+      let domain, path = removeQuotes(m[2].trim());
+      const i = path.indexOf('/');
+      if (i > 0) {
+        domain = path.substr(0, i);
+        path = path.substr(i);
+      }
+
+      return {
+        domain,
+        path: urlPrefix + path,
+        action: removeQuotes(m[4].trim()),
+        controller: removeQuotes(m[3].trim()),
+        options: m[6] && JSON.parse(m[6]),
+        method: m[1].trim().toUpperCase(),
+      }
+    };
+    image - 20210813111719724
+
+    image - 20210813110846897
+
+    简单测试
+    问题1: '2018-02-14' =>转换 '2018/04/18'
+
+    问题2: const reg = /(\w+)\s+(.+)\s*=>\s*(.+)#(\w+)(\s*,(.+))?/
+    改成具名组方式
+  </script>
+</body>
+
+</html>
