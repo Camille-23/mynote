@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>折叠面板</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    .collapse-container{
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #ddd;
+    }
+    .collapse-container .item{
+      border-top: 1px solid #ddd;
+    }
+    .collapse-container .item:first-child{
+      border-top: none;
+    }
+    .collapse-container .item .item-title{
+      font-weight: normal;
+      padding: 0 10px;
+      background-color: #f2f2f2;
+      height: 40px;
+      line-height: 40px;
+    }
+    .collapse-container .item .item-content{
+      padding: 10px;
+      display: none;
+    }
+    .collapse-container .item .item-content:first-child{
+      
+      display: block!important;
+    }
+    .item-content-on{
+      display: block!important;
+    }
+  </style>
+</head>
+<body>
+  <ul class="collapse-container">
+    <li class="item">
+      <h3 class="item-title">问题1</h3>
+      <div class="item-content">
+        阿斯顿法国红酒看来去微软推哦怕幸福感和监控时代法国红酒看来而退哦
+      </div>
+    </li>
+    <li class="item">
+      <h3 class="item-title">问题2</h3>
+      <div class="item-content">
+        阿斯顿法国红酒看来去微软推哦怕幸福感和监控时代法国红酒看来而退哦
+      </div>
+    </li>
+    <li class="item">
+      <h3 class="item-title">问题3</h3>
+      <div class="item-content">
+        阿斯顿法国红酒看来去微软推哦怕幸福感和监控时代法国红酒看来而退哦
+      </div>
+    </li>
+  </ul>
+  <details open
+  style="list-style: none;"
+  >
+    <summary>Copyright 2006-2021.</summary>
+    <p> - by W3School. All Rights Reserved.</p>
+    <p>All content and graphics on this web site are the property of W3School.</p>
+  </details>
+  <details >
+    <summary>Copyright 2006-2021.</summary>
+    <p> - by W3School. All Rights Reserved.</p>
+    <p>All content and graphics on this web site are the property of W3School.</p>
+  </details>
+
+  <script>
+    // 事件委托绑定父元素 给ul绑定点击事件
+    var collapseContainer = document.querySelector('.collapse-container');
+    console.log(collapseContainer);
+    collapseContainer.onclick = function(e){
+      // event对象
+      if(e.target.tagName.toLowerCase()=='h3'){
+        let itemContent = e.target.parentNode.querySelector(".item-content");
+        console.log(itemContent);
+        // 如果有这个类就删除，否则就加上
+        itemContent.classList.toggle("item-content-on");
+      }
+    }
+  </script>
+</body>
+</html>
