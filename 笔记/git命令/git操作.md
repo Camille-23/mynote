@@ -23,4 +23,18 @@ git push
 git checkout (分支名)
 git pull
 
-
+# 合并代码
+1.切换到develop分支拉去最近代码
+  git pull
+2.切回当前开发分支，合并develop分支，查看合并之后的状态
+  git checkout dev-zcd
+  git merge develop
+  git status
+3.解决冲突
+  git add 冲突文件
+  git commit
+  git push
+4.上线前切到develop分支，合并开发分支
+  git checkout develop
+  git merge dev-zcd
+  git push
